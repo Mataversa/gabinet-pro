@@ -57,4 +57,42 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.remove("active");
     });
   });
+
+  // Sprawdzanie autoryzacji
+  function checkAuth() {
+    if (!localStorage.getItem("isAuthenticated")) {
+      window.location.href = "auth.html";
+    }
+  }
+
+  // Wywołanie sprawdzenia autoryzacji przy załadowaniu strony
+  document.addEventListener("DOMContentLoaded", function () {
+    checkAuth();
+
+    // Dodanie obsługi przycisku wylogowania
+    const logoutButton = document.querySelector(".logout-button");
+    if (logoutButton) {
+      logoutButton.addEventListener("click", function () {
+        localStorage.removeItem("isAuthenticated");
+        window.location.href = "auth.html";
+      });
+    }
+
+    // Animacje przy scrollowaniu
+    const observerOptions = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".fade-in").forEach((element) => {
+      observer.observe(element);
+    });
+  });
 });
