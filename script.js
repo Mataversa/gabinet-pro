@@ -32,11 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Obsługa menu hamburger
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const body = document.body;
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");
       navLinks.classList.toggle("active");
+      body.style.overflow = navLinks.classList.contains("active")
+        ? "hidden"
+        : "";
     });
 
     // Zamykanie menu po kliknięciu w link
@@ -44,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         hamburger.classList.remove("active");
         navLinks.classList.remove("active");
+        body.style.overflow = "";
       });
     });
 
@@ -52,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
         hamburger.classList.remove("active");
         navLinks.classList.remove("active");
+        body.style.overflow = "";
       }
     });
   }

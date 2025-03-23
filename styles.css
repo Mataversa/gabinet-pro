@@ -722,16 +722,17 @@ footer {
   display: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .hamburger span {
   display: block;
   width: 25px;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--secondary-color);
   margin: 5px 0;
   transition: all 0.3s ease;
+  border-radius: 3px;
 }
 
 .logout-button {
@@ -754,16 +755,16 @@ footer {
 .footer-bottom {
   text-align: center;
   padding: 1rem;
-  border-top: 1px solid var(--light-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
   margin: 0.5rem 0;
-  color: var(--text-color);
+  color: var(--white);
 }
 
 .footer-bottom .designer {
   font-size: 0.9rem;
-  color: var(--secondary-color);
+  color: var(--accent-color);
   font-style: italic;
 }
