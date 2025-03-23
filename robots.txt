@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://gabinetpro.pl/sitemap.xml 
