@@ -23,7 +23,7 @@ Strona internetowa gabinetu psychologicznego Gabinet PRO Moniki Boguszewskiej w 
 1. Sklonuj repozytorium:
 
 ```bash
-git clone https://github.com/twoja-nazwa/gabinet-pro.git
+git clone https://github.com/mataversa/gabinet-pro.git
 ```
 
 2. Otwórz plik `auth.html` w przeglądarce
