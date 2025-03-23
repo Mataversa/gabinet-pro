@@ -34,30 +34,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
   const body = document.body;
 
+  const toggleMenu = (show) => {
+    hamburger.classList.toggle("active", show);
+    navLinks.classList.toggle("active", show);
+    body.style.overflow = show ? "hidden" : "";
+  };
+
   if (hamburger && navLinks) {
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      navLinks.classList.toggle("active");
-      body.style.overflow = navLinks.classList.contains("active")
-        ? "hidden"
-        : "";
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isActive = navLinks.classList.contains("active");
+      toggleMenu(!isActive);
     });
 
     // Zamykanie menu po kliknięciu w link
     document.querySelectorAll(".nav-links a").forEach((link) => {
       link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        body.style.overflow = "";
+        toggleMenu(false);
       });
     });
 
     // Zamykanie menu po kliknięciu poza menu
     document.addEventListener("click", (e) => {
       if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        body.style.overflow = "";
+        toggleMenu(false);
+      }
+    });
+
+    // Zamykanie menu po naciśnięciu ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navLinks.classList.contains("active")) {
+        toggleMenu(false);
       }
     });
   }
