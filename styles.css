@@ -70,35 +70,39 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  transition: padding 0.3s ease;
 }
 
-.logo {
-  font-family: "Playfair Display", serif;
+.logo a {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.logo:hover {
-  color: var(--secondary-color);
+.logo a:hover {
+  color: var(--primary-color);
 }
 
-nav ul {
+.nav-links ul {
   display: flex;
-  list-style: none;
   gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav ul li {
+.nav-links a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
   position: relative;
 }
 
-nav ul li::after {
+.nav-links a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -109,19 +113,12 @@ nav ul li::after {
   transition: width 0.3s ease;
 }
 
-nav ul li:hover::after {
-  width: 100%;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--secondary-color);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
+.nav-links a:hover {
   color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 #hero {
@@ -599,18 +596,6 @@ footer {
 
   .hamburger {
     display: block;
-    z-index: 1001;
-    padding: 10px;
-  }
-
-  .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 5px 0;
-    transition: all 0.3s ease;
-    border-radius: 3px;
   }
 
   .nav-links {
