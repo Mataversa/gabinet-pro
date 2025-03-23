@@ -1,23 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Sprawdzanie autoryzacji
-  function checkAuth() {
-    if (!localStorage.getItem("isAuthenticated")) {
-      window.location.href = "auth.html";
-    }
-  }
-
-  // Wywołanie sprawdzenia autoryzacji
-  checkAuth();
-
-  // Obsługa przycisku wylogowania
-  const logoutButton = document.querySelector(".logout-button");
-  if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-      localStorage.removeItem("isAuthenticated");
-      window.location.href = "auth.html";
-    });
-  }
-
   // Obsługa nagłówka i sekcji
   const header = document.querySelector("header");
   const sections = document.querySelectorAll("section");
@@ -64,6 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.classList.remove("active");
         navLinks.classList.remove("active");
       });
+    });
+
+    // Zamykanie menu po kliknięciu poza menu
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      }
     });
   }
 
