@@ -750,3 +750,20 @@ footer {
   background-color: var(--white);
   color: var(--secondary-color);
 }
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--light-bg);
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.footer-bottom .designer {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-style: italic;
+}
