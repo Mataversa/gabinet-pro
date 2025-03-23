@@ -107,16 +107,14 @@
   <body>
     <div class="auth-container">
       <h1>Gabinet PRO</h1>
-      <form
-        class="auth-form"
-        onsubmit="event.preventDefault(); authorize(document.getElementById('password').value);"
-      >
+      <form id="loginForm" class="auth-form">
         <input
           type="password"
           id="password"
           placeholder="Wprowadź hasło dostępu"
           required
         />
+        <div id="errorMessage" class="message"></div>
         <button type="submit">Zaloguj się</button>
       </form>
     </div>
