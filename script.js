@@ -49,8 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Zamykanie menu po kliknięciu w link
     document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        toggleMenu(false);
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          // Zamykamy menu
+          toggleMenu(false);
+
+          // Przewijamy do sekcji
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
     });
 
@@ -68,22 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  // Płynne przewijanie do sekcji
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
-  });
 
   // Animacje przy scrollowaniu
   const observerOptions = {
