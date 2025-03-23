@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     const password = passwordInput.value;
 
-    if (password === "filip") {
+    if (password === "gabinet") {
       localStorage.setItem("isAuthenticated", "true");
       window.location.href = "index.html";
     } else {
