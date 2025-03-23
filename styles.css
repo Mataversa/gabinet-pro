@@ -663,6 +663,7 @@ footer {
     display: block;
     margin: 20px 0;
     font-size: 1.2rem;
+    color: var(--white);
   }
 
   .hamburger.active span:nth-child(1) {
