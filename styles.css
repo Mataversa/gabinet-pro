@@ -634,7 +634,8 @@ footer {
   }
 
   .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg);
+    top: 14px;
   }
 
   .hamburger.active span:nth-child(2) {
@@ -642,7 +643,8 @@ footer {
   }
 
   .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: rotate(-45deg);
+    top: 14px;
   }
 }
 
@@ -709,16 +711,31 @@ footer {
   padding: 10px;
   z-index: 1001;
   position: relative;
+  width: 30px;
+  height: 30px;
 }
 
 .hamburger span {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: var(--secondary-color);
-  margin: 5px 0;
+  margin: 6px 0;
   transition: all 0.3s ease;
-  border-radius: 3px;
+  position: absolute;
+  left: 3px;
+}
+
+.hamburger span:nth-child(1) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 14px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 20px;
 }
 
 .logout-button {
