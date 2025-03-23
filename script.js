@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: "smooth",
             block: "start",
           });
+
+          // Przekierowanie do sekcji
+          setTimeout(() => {
+            window.location.href = targetId;
+          }, 500); // Opóźnienie 500ms, aby animacja przewijania zdążyła się wykonać
         }
       });
     });
