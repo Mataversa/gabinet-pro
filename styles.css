@@ -555,6 +555,80 @@ footer {
 
   nav {
     padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* Dodajemy przycisk do rozwijania menu */
+  .nav-toggle {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .nav-toggle::after {
+    content: "▼";
+    float: right;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-toggle.active::after {
+    transform: rotate(180deg);
   }
 
   .hero-content {

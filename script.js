@@ -29,45 +29,30 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
   handleScroll();
 
-  // Obsługa menu hamburger
-  const hamburger = document.querySelector(".hamburger");
+  // Obsługa menu mobilnego
+  const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
-  const body = document.body;
 
-  const toggleMenu = (show) => {
-    hamburger.classList.toggle("active", show);
-    navLinks.classList.toggle("active", show);
-    body.style.overflow = show ? "hidden" : "";
-  };
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    navToggle.classList.toggle("active");
+  });
 
-  if (hamburger && navLinks) {
-    hamburger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isActive = navLinks.classList.contains("active");
-      toggleMenu(!isActive);
+  // Zamykanie menu po kliknięciu w link
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("active");
     });
+  });
 
-    // Zamykanie menu po kliknięciu w link
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        toggleMenu(false);
-      });
-    });
-
-    // Zamykanie menu po kliknięciu poza menu
-    document.addEventListener("click", (e) => {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        toggleMenu(false);
-      }
-    });
-
-    // Zamykanie menu po naciśnięciu ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && navLinks.classList.contains("active")) {
-        toggleMenu(false);
-      }
-    });
-  }
+  // Zamykanie menu po kliknięciu poza menu
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("active");
+    }
+  });
 
   // Płynne przewijanie do sekcji
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
