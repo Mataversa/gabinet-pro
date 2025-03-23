@@ -785,7 +785,10 @@ footer {
   cursor: pointer;
   padding: 10px;
   z-index: 1001;
-  position: relative;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 30px;
   height: 30px;
 }
