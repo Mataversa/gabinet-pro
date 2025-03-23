@@ -107,16 +107,16 @@
   <body>
     <div class="auth-container">
       <h1>Gabinet PRO</h1>
-      <form id="loginForm" class="auth-form" onsubmit="return false;">
+      <div class="auth-form">
         <input
           type="password"
           id="password"
           placeholder="Wprowadź hasło dostępu"
-          required
+          onkeypress="if(event.key === 'Enter') checkPassword()"
         />
         <div id="errorMessage" class="message"></div>
-        <button type="submit">Zaloguj się</button>
-      </form>
+        <button onclick="checkPassword()">Zaloguj się</button>
+      </div>
     </div>
     <script src="auth.js"></script>
   </body>
